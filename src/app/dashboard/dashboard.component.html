@@ -1,0 +1,52 @@
+<h2>Question 1</h2>
+    
+    <div class="row">
+        <div class="w-50 margin-auto">
+          <div class="form-group">
+              
+            <div class="col-lg-6 col-md-6 p-4">
+              <input class="form-control" type="number" name="input_text" [(ngModel)]="input_text" placeholder="Please Enter the index">
+              <button class="m-2 margin-auto btn btn-primary" (click)="handleClick()">
+                  Submit
+              </button>
+            </div>
+            </div>
+            <h3>
+                Output : {{output}}
+            </h3>
+        </div>
+
+
+        
+    </div>
+
+    <h2>Question 3</h2>
+    
+    <div class="row">
+        <div class="w-100 margin-auto">
+          <div [formGroup]="phoneForm" class="form-group">
+            <ng-container formArrayName="phone_list" >
+            <div *ngFor="let phone of this.phoneFormValues;let i=index" class="col-lg-12 col-md-12 p-4">
+            <div class="col-lg-6">
+                <input [formControlName]="i" class="form-control" type="number" placeholder="Please Enter the phone number">
+            </div>
+             <div class="col-lg-6">
+               <button class="btn btn-success" (click)="addButton()">Add another phone number</button> 
+               <button *ngIf="i!=0" class="btn btn-danger" (click)="deleteButton(i)">Delete</button>
+            </div>  
+        </div>
+        </ng-container>
+              <button class="m-2 margin-auto btn btn-primary" (click)="submitForm()">
+                  Submit
+              </button>
+            </div>
+            <h3>
+                Output : {{output3 | json}}
+            </h3>
+        </div>
+
+
+        <button [routerLink]="['/question4']" class="btn btn-outline-secondary">
+            Question 4
+        </button>
+    </div>
